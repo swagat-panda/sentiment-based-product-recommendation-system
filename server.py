@@ -5,7 +5,7 @@ from process_output import FormartOutput
 
 app = Flask(__name__)
 model = LoadModel()
-obj = FormartOutput()
+obj = FormartOutput(model)
 
 
 @app.route("/")
