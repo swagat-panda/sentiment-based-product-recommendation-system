@@ -2,10 +2,10 @@
 
 ## URLS:-
 
-```bazaar
 Repo- https://github.com/swagat-panda/sentiment-based-product-recommendation-system
+
 Deployed APP- https://sbprs.herokuapp.com/
-```
+
 
 ## Glance
 
