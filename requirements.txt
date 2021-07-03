@@ -1,0 +1,12 @@
+numpy==1.19.3
+pandas==1.1.4
+spacy==2.3.2
+flask==1.1.2
+imblearn
+tqdm==4.51.0
+sklearn
+beautifulsoup4==4.9.3
+joblib==0.17.0
+openpyxl==3.0.5
+xlrd==1.2.0
+gunicorn
