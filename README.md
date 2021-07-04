@@ -1,5 +1,7 @@
 # Sentiment based product recommendation system
 
+### Please add the dataset sample30.csv to the data folder, i m removing it for space problem
+
 ## URLS:-
 
 Repo- https://github.com/swagat-panda/sentiment-based-product-recommendation-system
