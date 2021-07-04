@@ -24,6 +24,13 @@ h3 {
     margin-top: 60px;
 }
 
+#processing-data {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    margin-top: 10px;
+}
+
 #userInput {
     margin-left: auto;
     margin-right: auto;
@@ -53,10 +60,12 @@ h3 {
     line-height: 30px;
 }
 
-.userText span {
+.userText{
     background-color: #009688;
     padding: 10px;
-    border-radius: 2px;
+    border-radius: 10px 0px 10px 10px;
+    display: inline-block;
+    margin: 5px;
 }
 
 .botText {
@@ -67,10 +76,12 @@ h3 {
     line-height: 30px;
 }
 
-.botText span {
+.botText{
     background-color: #EF5350;
     padding: 10px;
-    border-radius: 2px;
+    border-radius: 0px 10px 10px 10px;
+    display: inline-block;
+    margin: 5px;
 }
 
 #tidbit {
@@ -78,4 +89,8 @@ h3 {
     bottom:0;
     right:0;
     width: 300px;
+}
+
+.d-none{
+    display: none;
 }

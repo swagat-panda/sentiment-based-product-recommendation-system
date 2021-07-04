@@ -1,46 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Sentiment-based product recommendation system</h1>
     <div>
-      <div id="chatbox">
-        <p class="botText"><span>Hi! This is Reco Virtual Assistant,I can help you Product recommendation.</span></p>
-        <p class="botText"><span>Please enter a user Id </span></p>
+        <div id="chatbox">
+            <div>
+                <p class="botText"><span>Hi! This is Reco Virtual Assistant,I can help you Product
+                        recommendation.</span></p>
+            </div>
+            <div>
+                <p class="botText"><span>Please enter a user Id </span></p>
+            </div>
+        </div>
+        <div id="processing-data" class="d-none">
+            <div>
+                <p class="botText"><span>It usually takes sometime to process a request. Please wait! </span></p>
+                <div class="">
+                    <img class="typing-img" src="/static/typing.gif">
+                </div>
+            </div>
+        </div>
+        <div id="userInput">
+            <input id="textInput" type="text" name="msg" placeholder="Message">
+            <input id="buttonInput" type="submit" value="Send">
+        </div>
+        <script>
+            function getBotResponse() {
+                var rawText = $("#textInput").val();
+                var userHtml = '<div style="text-align: right;"><p class="userText"><span>' + rawText + '</span></p></div>';
+                $("#textInput").val("");
+                $("#chatbox").append(userHtml);
+                document.getElementById('userInput').scrollIntoView({ block: 'start', behavior: 'smooth' });
+                if (document.getElementById('processing-data').classList.contains("d-none")) {
+                    document.getElementById('processing-data').classList.toggle("d-none");
+                }
 
-
-      </div>
-      <div id="userInput">
-        <input id="textInput" type="text" name="msg" placeholder="Message">
-        <input id="buttonInput" type="submit" value="Send">
-      </div>
-      <script>
-        function getBotResponse() {
-          var rawText = $("#textInput").val();
-          var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
-          $("#textInput").val("");
-          $("#chatbox").append(userHtml);
-          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-          $.get("/get", { msg: rawText }).done(function(data) {
-            var botHtml = '<p class="botText"><span>' + data + '</span></p>';
-            $("#chatbox").append(botHtml);
-            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-          });
-        }
-        $("#textInput").keypress(function(e) {
-            if ((e.which == 13) && document.getElementById("textInput").value != "" ){
-                getBotResponse();
+                $.get("/get", { msg: rawText }).done(function (data) {
+                    var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+                    document.getElementById('processing-data').classList.toggle("d-none");
+                    $("#chatbox").append(botHtml);
+                    if (!document.getElementById('processing-data').classList.contains("d-none")) {
+                        document.getElementById('processing-data').classList.toggle("d-none");
+                    }
+                });
             }
-        });
-        $("#buttonInput").click(function() {
-            if (document.getElementById("textInput").value != "") {
-                getBotResponse();
-            }
-        })
-      </script>
+            $("#textInput").keypress(function (e) {
+                if ((e.which == 13) && document.getElementById("textInput").value != "") {
+                    getBotResponse();
+                }
+            });
+            $("#buttonInput").click(function () {
+                if (document.getElementById("textInput").value != "") {
+                    getBotResponse();
+                }
+            })
+        </script>
     </div>
-  </body>
+</body>
+
 </html>
