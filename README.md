@@ -1,6 +1,6 @@
 # Sentiment based product recommendation system
 
-### Please add the dataset sample30.csv to the data folder, i m removing it for space problem
+### Due to memory issue herokuapp is bit slow try to run in local by using ``` python server.py``` or ``` gunicorn -b 0.0.0.0:8000 server:app ```
 
 ## URLS:-
 
